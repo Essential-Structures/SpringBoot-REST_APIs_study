@@ -3,10 +3,7 @@ package com.ITSchool.REST_APIs_study.controllers;
 import com.ITSchool.REST_APIs_study.models.User;
 import com.ITSchool.REST_APIs_study.services.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,12 @@ public class UserController {
 
     @GetMapping("/api/users")
     public ResponseEntity <List<User>> showUsers() {
+
         return ResponseEntity.ok(userService.showUsers());
+    }
+
+    @DeleteMapping("/api/users")
+    public ResponseEntity <List<User>> deleteUser(@RequestBody User userToDelete){
+        return ResponseEntity.ok(userService.deleteUser(userToDelete));
     }
 }
