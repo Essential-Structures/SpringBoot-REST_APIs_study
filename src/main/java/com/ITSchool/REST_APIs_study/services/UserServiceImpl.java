@@ -16,12 +16,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User utilizatorCreat) throws IllegalAccessException {
-        if (utilizatorCreat.getEmailAdress().length()<5)
+        if (utilizatorCreat.getEmailAdress().length() < 5)
             throw new IllegalAccessException("Inputed user data is invalid");
+
+        utilizatorCreat.setID(UUID.randomUUID());
         users.add(utilizatorCreat);
 
-            utilizatorCreat.setID(UUID.randomUUID());
-            log.info("User {} successfully added to database", utilizatorCreat.getID());
+        log.info("User {} successfully added to database", utilizatorCreat.getID());
         return utilizatorCreat;
     }
 
@@ -33,5 +34,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> deleteUser(User userToDelete) {
         users.remove(userToDelete);
-        return users;    }
+        return users;
+    }
 }
