@@ -12,23 +12,22 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController (UserService userService){
-        this.userService=userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @PostMapping("/api/users")
-    public ResponseEntity < User > createUser(@RequestBody User userDataReceivedToCreateUser) throws IllegalAccessException {
+    public ResponseEntity<User> createUser(@RequestBody User userDataReceivedToCreateUser) throws IllegalAccessException {
         return ResponseEntity.ok(userService.createUser(userDataReceivedToCreateUser));
     }
 
     @GetMapping("/api/users")
-    public ResponseEntity <List<User>> showUsers() {
-
+    public ResponseEntity<List<User>> showUsers() {
         return ResponseEntity.ok(userService.showUsers());
     }
 
     @DeleteMapping("/api/users")
-    public ResponseEntity <List<User>> deleteUser(@RequestBody User userToDelete){
+    public ResponseEntity<List<User>> deleteUser(@RequestBody User userToDelete) {
         return ResponseEntity.ok(userService.deleteUser(userToDelete));
     }
 }
