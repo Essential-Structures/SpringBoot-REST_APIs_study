@@ -3,10 +3,7 @@ package challenge.controllers;
 import challenge.models.Volunteer;
 import challenge.services.VolunteerService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -24,7 +21,8 @@ public class VolunteerController {
         return ResponseEntity.ok(volunteerService.registerVolunteer(newVolunteer));
     }
 
-    @GetMapping("/api/volunteer")
-    public ResponseEntity <Volunteer> showVolunteer(@RequestBody String volunteerName){
-        return ResponseEntity.ok(volunteerService.showVolunteer(volunteerName));
-    }}
+    @GetMapping("/api/volunteer/{IDNr}")
+    public ResponseEntity<Volunteer> getVolunteer ( Volunteer returnedVolunteer) {
+        return ResponseEntity.ok(volunteerService.showVolunteer(returnedVolunteer.getIDNr()));
+    }
+}

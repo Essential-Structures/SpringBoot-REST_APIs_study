@@ -23,13 +23,12 @@ public class VolunteerServiceImpl implements VolunteerService {
     }
 
     @Override
-    public Volunteer showVolunteer(String name) { //as f vrut sa il intorc dupa UUID
+    public Volunteer showVolunteer(UUID IDNr) {
         for (Volunteer iterator : volunteersDataBase)
-            if (iterator.getName().equals(name))
+            if (iterator.getIDNr()==IDNr)
                 return iterator;
                 else throw new NoSuchElementException("No such volunteer");
-                //ramane pt lectia de exceptii, de ce tipul asta de exceptie nu cere modificarea semnaturii clasei,
-        // sau try/catch pe loc(pt ca e runtime/unchecked?)
+
 
         return null; //nu am stiut ce altceva sa returnez
     }
