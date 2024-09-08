@@ -6,11 +6,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("challenge_session_21")
+@ComponentScan("challenge_session_21")//where to scan for Components
 public class AppConfig {
 
     @Bean
-    GreetingModel greetingTemplate(){
+    GreetingModel greetingTemplate(){ //name of bean to be sed by ApplicationContext
         return new GreetingModel();
     }
 }

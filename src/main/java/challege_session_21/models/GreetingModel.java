@@ -7,5 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class GreetingModel {
 
-    String greetTemplate = "Model greet message template, custom message follows:  ";
+    String greetTemplate =
+            "Model:greet message template,custom message now follows:  ";
 }
