@@ -1,4 +1,4 @@
-package challenge.models;
+package challenge_session_20.models;
 
 import lombok.Data;
 

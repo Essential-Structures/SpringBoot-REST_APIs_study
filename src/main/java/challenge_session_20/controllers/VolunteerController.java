@@ -1,11 +1,9 @@
-package challenge.controllers;
+package challenge_session_20.controllers;
 
-import challenge.models.Volunteer;
-import challenge.services.VolunteerService;
+import challenge_session_20.models.Volunteer;
+import challenge_session_20.services.VolunteerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
 
 @RestController
 public class VolunteerController {

@@ -1,6 +1,6 @@
-package challenge.services;
+package challenge_session_20.services;
 
-import challenge.models.Volunteer;
+import challenge_session_20.models.Volunteer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package challenge.services;
+package challenge_session_20.services;
 
-import challenge.models.Volunteer;
+import challenge_session_20.models.Volunteer;
 
 import java.util.UUID;
 
