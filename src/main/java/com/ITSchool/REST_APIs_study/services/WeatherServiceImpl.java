@@ -1,6 +1,6 @@
 package com.ITSchool.REST_APIs_study.services;
 
-import com.ITSchool.REST_APIs_study.models.WeatherStatus;
+import com.ITSchool.REST_APIs_study.models.entities.WeatherStatus;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

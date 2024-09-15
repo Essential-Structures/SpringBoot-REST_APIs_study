@@ -1,6 +1,7 @@
 package com.ITSchool.REST_APIs_study.controllers;
 
-import com.ITSchool.REST_APIs_study.models.User;
+import com.ITSchool.REST_APIs_study.models.DTOs.UserDTO;
+import com.ITSchool.REST_APIs_study.models.entities.User;
 import com.ITSchool.REST_APIs_study.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,8 @@ public class UserController {
     }
 
     @PostMapping("/api/users")
-    public ResponseEntity<User> createUser(@RequestBody User userDataReceivedToCreateUser) throws IllegalAccessException {
-        return ResponseEntity.ok(userService.createUser(userDataReceivedToCreateUser));
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTODataReceivedToCreateUser) throws IllegalAccessException {
+        return ResponseEntity.ok(userService.createUser(userDTODataReceivedToCreateUser));
     }
 
     @GetMapping("/api/users")

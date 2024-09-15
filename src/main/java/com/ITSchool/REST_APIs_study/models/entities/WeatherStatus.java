@@ -1,4 +1,4 @@
-package com.ITSchool.REST_APIs_study.models;
+package com.ITSchool.REST_APIs_study.models.entities;
 
 import lombok.Data;
 
