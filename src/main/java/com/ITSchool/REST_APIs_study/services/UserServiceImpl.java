@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
         UserForDatabase userEntityForDatabase = objectMapper.convertValue(userDTO, UserForDatabase.class);
         UserForDatabase savedUserEntity = userRepository.save(userEntityForDatabase);
-        log.info("Just save user with ID {} to database", savedUserEntity.getID());
+        log.info("Just saved user with ID {} to database", savedUserEntity.getID());
         return objectMapper.convertValue(savedUserEntity, UserDTO.class);
     }
 
