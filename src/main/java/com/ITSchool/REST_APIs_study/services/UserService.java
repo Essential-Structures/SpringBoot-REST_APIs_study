@@ -8,6 +8,6 @@ import java.util.List;
 public interface UserService {
 
     UserDTO createUserInsideDatabase(UserDTO userDTO) throws IllegalArgumentException;
-    List<UserForDatabase> showUsers();
+    List<UserDTO> showUsers();
     List<UserForDatabase> deleteUser(UserForDatabase userToDelete);
 }

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Slf4j
@@ -25,19 +26,21 @@ public class UserServiceImpl implements UserService {
     public UserDTO createUserInsideDatabase(UserDTO userDTO)
             throws IllegalArgumentException {
 
-        if(userDTO.getEmailAddress().length()<5)
+        if (userDTO.getEmailAddress().length() < 5)
             throw new IllegalArgumentException("EMail address invalid");
 
         UserForDatabase userEntityForDatabase = objectMapper.convertValue(userDTO, UserForDatabase.class);
-        UserForDatabase savedUserEntity=userRepository.save(userEntityForDatabase);
-        log.info("Just save user with ID {} to database",savedUserEntity.getID());
-        return objectMapper.convertValue(savedUserEntity,UserDTO.class);
+        UserForDatabase savedUserEntity = userRepository.save(userEntityForDatabase);
+        log.info("Just save user with ID {} to database", savedUserEntity.getID());
+        return objectMapper.convertValue(savedUserEntity, UserDTO.class);
     }
 
     @Override
-    public List<UserForDatabase> showUsers() {
-        return null;
-    }
+    public List<UserDTO> showUsers() {
+        List<UserForDatabase> usersListAsEntity = userRepository.findAll();
+        return usersListAsEntity.stream()
+                .map(userForDatabase->objectMapper.convertValue(userForDatabase,UserDTO.class)).toList();
+    }//de unde imi apare mie userForDatabase??
 
     @Override
     public List<UserForDatabase> deleteUser(UserForDatabase userToDelete) {
